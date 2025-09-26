@@ -1,0 +1,210 @@
+/* 书卡容器样式 */
+.book-card {
+    padding: 16px 8px; /* 左右内边距8px，上下内边距16px，对应 Tailwind 的 px-2 py-4 */
+    border-bottom: 1px solid #e5e7eb; /* 下边框为浅灰色，对应 border-gray-100 */
+    transition: background-color 0.3s; /* 背景色过渡动画，持续0.3秒 */
+}
+.book-card:hover {
+    background-color: #f9fafb; /* 鼠标悬停时背景色为浅灰白，对应 hover:bg-gray-50 */
+}
+@media (prefers-color-scheme: dark) {
+    .book-card {
+        border-bottom: 1px solid #334155; /* 暗色模式下边框为深灰色，对应 dark:border-slate-700 */
+    }
+    .book-card:hover {
+        background-color: #029be2; /* 暗色模式下悬停背景色为深蓝灰，对应 dark:hover:bg-[#233044] */
+    }
+}
+
+/* 书籍封面容器 */
+.book-cover-container {
+    width: 80px; /* 宽度80px，对应 w-20 */
+    height: 120px; /* 高度120px，对应 h-[7.5rem] */
+    margin-right: 12px; /* 右外边距12px，对应 mr-3 */
+    flex-shrink: 0; /* 禁止在 Flex 布局中收缩，对应 flex-shrink-0 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 中等阴影效果，对应 shadow-md */
+    position: relative; /* 相对定位，为子元素提供定位上下文，对应 relative */
+    border-radius: 8px; /* 圆角8px，对应 rounded-lg */
+    overflow: hidden; /* 隐藏溢出内容 */
+}
+@media (min-width: 768px) {
+    .book-cover-container {
+        width: 96px; /* 中等屏幕下宽度96px，对应 md:w-24 */
+        height: 144px; /* 中等屏幕下高度144px，对应 md:h-36 */
+        margin-right: 20px; /* 中等屏幕下右外边距20px，对应 md:mr-5 */
+    }
+}
+
+/* 封面图片 */
+.book-cover-img {
+    width: 100%; /* 宽度占满容器 */
+    height: 100%; /* 高度占满容器 */
+    object-fit: cover; /* 图片覆盖容器，保持比例裁剪 */
+    border-radius: 8px; /* 圆角8px */
+    z-index: 10; /* 层级10，确保图片在备用封面上方 */
+    transition: z-index 0.3s; /* 层级过渡动画，持续0.3秒 */
+}
+.book-cover-img:hover {
+    z-index: 50; /* 鼠标悬停时层级提升到50 */
+}
+
+/* 备用封面 */
+.fallback-cover {
+    display: none; /* 默认隐藏 */
+    width: 100%; /* 宽度占满容器 */
+    height: 100%; /* 高度占满容器 */
+    border-radius: 8px; /* 圆角8px */
+    overflow: hidden; /* 隐藏溢出内容 */
+    user-select: none; /* 禁止文本选择 */
+}
+.fallback-cover .book-title {
+    font-weight: bold; /* 标题加粗 */
+    color: #6b21a8; /* 标题颜色为深紫色，对应 text-violet-900 */
+}
+.fallback-cover .book-author {
+    font-weight: bold; /* 作者加粗 */
+    color: #b45309; /* 作者颜色为琥珀色，对应 text-amber-900 */
+}
+
+/* 书籍信息 */
+.book-info {
+    flex: 1; /* 在 Flex 布局中占满剩余空间 */
+}
+.book-title {
+    font-weight: 600; /* 字体粗细600 */
+    font-size: 16px; /* 字体大小16px，对应 text-md */
+    color: #414441; /* 标题颜色为深灰绿色 */
+    display: -webkit-box; /* 限制多行文本显示 */
+    -webkit-line-clamp: 3; /* 最多显示3行 */
+    -webkit-box-orient: vertical; /* 垂直排列 */
+    overflow: hidden; /* 隐藏溢出文本 */
+    margin-bottom: 4px; /* 下外边距4px */
+}
+@media (min-width: 768px) {
+    .book-title {
+        font-size: 18px; /* 中等屏幕下字体大小18px，对应 md:text-lg */
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .book-title {
+        color: #414441; /* 暗色模式下标题颜色保持深灰绿色 */
+    }
+    .book-title:hover {
+        color: #eeff00; /* 暗色模式下悬停标题颜色保持深灰绿色 */
+    }
+}
+
+/* 作者信息 */
+.author-info {
+    font-size: 14px; /* 字体大小14px，对应 text-sm */
+    font-weight: 600; /* 字体粗细600 */
+    display: flex; /* 弹性布局 */
+    align-items: center; /* 垂直居中对齐 */
+    overflow: hidden; /* 隐藏溢出文本 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    white-space: nowrap; /* 文本不换行 */
+    margin-bottom: 4px; /* 下外边距4px */
+    color: #414441; /* 作者链接颜色为深灰绿色 */
+}
+.author-info a {
+    color: #414441; /* 作者链接颜色为深灰绿色 */
+}
+@media (prefers-color-scheme: dark) {
+    .author-info a {
+        color: #414441; /* 暗色模式下作者链接颜色保持深灰绿色 */
+    }
+}
+
+/* 书籍描述 */
+.book-description {
+    font-size: 14px; /* 字体大小14px，对应 text-sm */
+    font-weight: 530; /* 字体粗细600 */
+    color: #414441; /* 描述颜色为深灰绿色 */
+    display: -webkit-box; /* 限制多行文本显示 */
+    -webkit-line-clamp: 2; /* 最多显示2行 */
+    -webkit-box-orient: vertical; /* 垂直排列 */
+    overflow: hidden; /* 隐藏溢出文本 */
+    position: relative; /* 相对定位，为按钮提供上下文 */
+    margin-top: 4px; /* 上外边距4px */
+}
+@media (prefers-color-scheme: dark) {
+    .book-description {
+        color: #414441; /* 暗色模式下描述颜色保持深灰绿色 */
+    }
+}
+.read-more-btn {
+    display: none; /* 默认隐藏 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0; /* 底部对齐 */
+    right: 0; /* 右边对齐 */
+    background: #ffffff; /* 背景色为白色 */
+    padding-left: 4px; /* 左内边距4px */
+    color: #414441; /* 文字颜色为深灰绿色 */
+    font-weight: 500; /* 字体粗细500 */
+}
+@media (prefers-color-scheme: dark) {
+    .read-more-btn {
+        background: #1e293b; /* 暗色模式下背景色为深灰，对应 dark:bg-slate-800 */
+        color: #414441; /* 暗色模式下文字颜色保持深灰绿色 */
+    }
+}
+
+/* 元数据 */
+.book-meta {
+    margin-bottom: 4px; /* 下外边距4px */
+}
+.book-meta span {
+    font-size: 12px; /* 字体大小12px，对应 text-sm */
+    font-weight: 600; /* 字体粗细600 */
+    color: #414441; /* 文字颜色为深灰绿色 */
+    text-transform: uppercase; /* 文本大写 */
+}
+@media (prefers-color-scheme: dark) {
+    .book-meta span {
+        color: #414441; /* 暗色模式下文字颜色保持深灰绿色 */
+    }
+}
+
+/* 操作按钮区域 */
+.action-buttons {
+    display: flex; /* 弹性布局 */
+    overflow-x: auto; /* 水平溢出时滚动 */
+    white-space: nowrap; /* 文本不换行 */
+    margin-left: 88px; /* 左外边距88px，对应 ml-[88px] */
+    padding: 1px 0 2px; /* 上下内边距1px和2px */
+    scrollbar-width: none; /* Firefox 隐藏滚动条 */
+    -ms-overflow-style: none; /* IE/Edge 隐藏滚动条 */
+}
+.action-buttons::-webkit-scrollbar {
+    display: none; /* Chrome/Safari 隐藏滚动条 */
+}
+@media (min-width: 768px) {
+    .action-buttons {
+        margin-left: 112px; /* 中等屏幕下左外边距112px，对应 md:ml-28 */
+    }
+}
+
+/* 按钮样式 */
+.file-badge {
+    display: inline-flex; /* 内联弹性布局 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 4px 12px; /* 左右内边距12px，上下内边距4px，对应 px-3 py-1 */
+    background: #ffffff; /* 背景色为白色 */
+    border-radius: 8px; /* 圆角8px，对应 rounded-lg */
+    font-size: 14px; /* 字体大小14px，对应 text-sm */
+    font-weight: 500; /* 字体粗细500 */
+    color: #414441; /* 文字颜色为深灰绿色 */
+    margin-left: 8px; /* 左外边距8px，对应 ml-2 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    white-space: nowrap; /* 文本不换行 */
+    flex-shrink: 0; /* 禁止在 Flex 布局中收缩 */
+}
+@media (prefers-color-scheme: dark) {
+    .file-badge {
+        background: #ffffff; /* 暗色模式下背景色保持白色 */
+        color: #414441; /* 暗色模式下文字颜色保持深灰绿色 */
+    }
+}
+.file-badge span {
+    color: #414441; /* 按钮内文字颜色为深灰绿色 */
+}
