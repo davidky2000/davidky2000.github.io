@@ -1,0 +1,122 @@
+/* 最新文章部分 */
+.latest-articles {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.articles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.article-card {
+    flex: 1 1 300px; /* 桌面3列，移动单列 */
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.article-title {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.article-summary {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 摘要截断为3行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-date {
+    font-size: 0.85rem;
+    color: #adb5bd;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.read-more {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+.view-all {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.view-all:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+    .articles-grid {
+        justify-content: flex-start;
+    }
+    
+    .article-card {
+        flex: 1 1 48%; /* 桌面2列 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .article-card {
+        flex: 1 1 30%; /* 桌面3列 */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .article-card {
+        padding: 1rem;
+    }
+    
+    .article-title {
+        font-size: 1.1rem;
+    }
+}
