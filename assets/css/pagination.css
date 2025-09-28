@@ -1,0 +1,49 @@
+/* 页码导航 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.page-item {
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    border-radius: 50%;
+    color: #3498db;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #e9ecef;
+    background: #fff;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.page-item:hover {
+    background: #3498db;
+    color: #fff;
+    border-color: #3498db;
+}
+
+.page-item.active {
+    background: #3498db;
+    color: #fff;
+    border-color: #3498db;
+    font-weight: 600;
+}
+
+.page-item:disabled {
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+    .page-item {
+        width: 1.75rem;
+        height: 1.75rem;
+        line-height: 1.75rem;
+        font-size: 0.85rem;
+    }
+}
